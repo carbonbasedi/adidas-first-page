@@ -1,0 +1,338 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+body {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  font-family: "Inter", sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+.container {
+  width: 100vw;
+  max-width: 100vw;
+  margin: 0 auto;
+}
+
+.button {
+  font-size: 16px;
+  font-weight: 200;
+  letter-spacing: 1px;
+  padding: 10px 20px;
+  outline: 0;
+  border: 1px solid black;
+  cursor: pointer;
+  position: relative;
+  background-color: rgba(0, 0, 0, 0);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+.button::after {
+  content: "";
+  background-color: #ffe54c;
+  width: 100%;
+  z-index: -1;
+  position: absolute;
+  height: 100%;
+  top: 7px;
+  left: 7px;
+  transition: 0.2s;
+}
+.button:hover::after {
+  top: 0px;
+  left: 0px;
+}
+
+.card {
+  display: block;
+  padding: 0.75rem;
+  border: 1px solid black;
+}
+
+.top {
+  height: 35px;
+  width: 100vw;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.top .box > a {
+  text-decoration: none;
+}
+.top .box > a span {
+  color: white;
+  font-weight: 700;
+  font-size: 12px;
+}
+.top .box > a span i {
+  font-size: 12px;
+}
+.top .overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  transition: opacity 500ms;
+  visibility: hidden;
+  opacity: 0;
+}
+.top .overlay:target {
+  visibility: visible;
+  opacity: 1;
+}
+.top .popup {
+  margin: 0 auto;
+  padding: 100px;
+  background: #fff;
+  width: auto;
+  position: relative;
+  transition: all 5s ease-in-out;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.top .popup .close {
+  color: black;
+  font-size: 50px;
+  position: absolute;
+  text-decoration: none;
+  top: 30px;
+  right: 50px;
+}
+.top .popup .close:hover {
+  color: #ffe54c;
+}
+.top .popup span {
+  font-weight: 800;
+  font-size: 20px;
+}
+.top .popup div {
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 13px;
+  width: 500px;
+}
+.top .popup button > a {
+  text-decoration: none;
+  color: black;
+  font-weight: 700;
+}
+.top .popup .return {
+  background-color: white;
+  margin-top: 20px;
+  font-size: 15px;
+  color: black;
+  font-weight: 700;
+  text-decoration: underline;
+}
+.top .popup .return:hover {
+  background-color: black;
+  color: white;
+  text-decoration: none;
+}
+
+.mid {
+  background-color: white;
+  padding: 0 10px;
+  display: grid;
+  grid-template-columns: 10% 90%;
+  grid-template-rows: 35px 35px;
+  grid-template-areas: "i u" "i d";
+}
+.mid .icon {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  grid-area: i;
+}
+.mid .up {
+  grid-area: u;
+}
+.mid .up ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 10px;
+  padding-right: 50px;
+}
+.mid .up ul li > a {
+  color: #2f2f2f;
+  font-size: 12px;
+}
+.mid .up ul li > a:hover {
+  text-decoration: underline;
+}
+.mid .up ul li > a img {
+  width: 25px;
+}
+.mid .up ul .lang {
+  position: fixed;
+  top: 80px;
+  right: 330px;
+  transition: opacity 500ms;
+  visibility: hidden;
+  opacity: 0;
+}
+.mid .up ul .lang:target {
+  visibility: visible;
+  opacity: 1;
+}
+.mid .up ul .lang .langmenu {
+  margin: 0 auto;
+  padding: 20px;
+  background: #fff;
+  width: 250px;
+  position: absolute;
+  transition: all 5s ease-in-out;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 20px;
+  border: 1px solid black;
+}
+.mid .up ul .lang .langmenu span {
+  font-weight: 300;
+  font-size: 20px;
+  text-decoration: none;
+}
+.mid .up ul .lang .langmenu button {
+  background-color: #2f2f2f;
+  color: white;
+  outline: 1px solid black;
+}
+.mid .up ul .lang .langmenu .select {
+  margin-top: 20px;
+  display: block;
+}
+.mid .up ul .lang .langmenu .select select {
+  width: 200px;
+  height: 30px;
+}
+.mid .down {
+  grid-area: d;
+}
+.mid .down .downgrid {
+  display: grid;
+  grid-template-columns: 75% 25%;
+  grid-template-rows: 1fr;
+}
+.mid .down .downgrid .dropdown {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  gap: 15px;
+  position: relative;
+}
+.mid .down .downgrid .dropdown .btn {
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 700;
+}
+.mid .down .downgrid .dropdown .btn:hover {
+  border-bottom: 3px solid black;
+}
+.mid .down .downgrid .dropdown .dropbtn {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  background-color: whitesmoke;
+  margin: 0;
+  width: 100vw;
+  padding: 10px;
+  transition: all 0.25s ease-in-out;
+  opacity: 0;
+  gap: 10px;
+  text-align: center;
+}
+.mid .down .downgrid .dropdown .dropbtn ul {
+  display: inline;
+}
+.mid .down .downgrid .dropdown .dropbtn ul li {
+  display: inline;
+}
+.mid .down .downgrid .dropdown > .btn:hover + .dropbtn {
+  opacity: 1;
+}
+.mid .down .downgrid .service {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  margin: 0 20px;
+  gap: 10px;
+}
+.mid .down .downgrid .service .searchbar {
+  border-radius: 1px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.mid .down .downgrid .service .searchbar .icon {
+  background-color: #eceff1;
+  padding: 8px;
+}
+.mid .down .downgrid .service .searchbar input[type=text] {
+  height: 30px;
+  width: 200px;
+  background-color: #eceff1;
+  border: none;
+  font-size: 17px;
+}
+.mid .down .downgrid .service .servicebtn > button {
+  font-size: 16px;
+  font-weight: 200;
+  letter-spacing: 1px;
+  padding: 8px 10px;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+.main {
+  display: flex;
+  justify-self: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+}
+.main div {
+  top: 100px;
+  left: 0;
+  padding: 150px;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 10px;
+}
+.main div .title {
+  font-weight: 900;
+  font-size: 30px;
+}
+.main div .title2 {
+  font-weight: 500;
+  font-size: 20px;
+}
+.main div .button {
+  height: 50px;
+  width: 200px;
+}
+.main .flex {
+  width: 1600px;
+  max-width: 1600px;
+  margin: 0 auto;
+  font-size: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
