@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
-body {
-  position: relative;
+html, body {
+  height: 100%;
+  width: 100%;
   margin: 0;
   padding: 0;
   font-family: "Inter", sans-serif;
@@ -11,8 +12,8 @@ a {
 }
 
 .container {
-  width: 100vw;
-  max-width: 100vw;
+  width: 100%;
+  max-width: auto;
   margin: 0 auto;
 }
 
@@ -37,13 +38,13 @@ a {
   z-index: -1;
   position: absolute;
   height: 100%;
-  top: 7px;
-  left: 7px;
+  top: -4px;
+  left: -4px;
   transition: 0.2s;
 }
 .button:hover::after {
-  top: 0px;
-  left: 0px;
+  top: 0;
+  left: 0;
 }
 
 .card {
@@ -83,6 +84,7 @@ a {
   opacity: 0;
 }
 .top .overlay:target {
+  z-index: 100;
   visibility: visible;
   opacity: 1;
 }
@@ -97,6 +99,7 @@ a {
   justify-content: center;
   align-items: flex-start;
   flex-direction: column;
+  z-index: 100;
 }
 .top .popup .close {
   color: black;
@@ -157,13 +160,12 @@ a {
 }
 .mid .up ul {
   margin: 0;
-  padding: 0;
+  padding: 0 50px 0 0;
   list-style-type: none;
   display: flex;
   justify-content: flex-end;
   align-items: center;
   gap: 10px;
-  padding-right: 50px;
 }
 .mid .up ul li > a {
   color: #2f2f2f;
@@ -222,72 +224,74 @@ a {
 .mid .down {
   grid-area: d;
 }
-.mid .down .downgrid {
+.mid .down .down_grid {
   display: grid;
   grid-template-columns: 75% 25%;
   grid-template-rows: 1fr;
 }
-.mid .down .downgrid .dropdown {
+.mid .down .down_grid .dropdown {
   display: flex;
   justify-content: center;
-  align-content: center;
+  align-content: flex-end;
   gap: 15px;
   position: relative;
 }
-.mid .down .downgrid .dropdown .btn {
+.mid .down .down_grid .dropdown .btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   cursor: pointer;
   font-size: 15px;
   font-weight: 700;
 }
-.mid .down .downgrid .dropdown .btn:hover {
+.mid .down .down_grid .dropdown .btn:hover {
   border-bottom: 3px solid black;
 }
-.mid .down .downgrid .dropdown .dropbtn {
+.mid .down .down_grid .dropdown .dropbtn {
   position: absolute;
   top: calc(100% + 0.5rem);
   background-color: whitesmoke;
-  margin: 0;
+  margin: 0 auto;
   width: 100vw;
   padding: 10px;
   transition: all 0.25s ease-in-out;
   opacity: 0;
   gap: 10px;
-  text-align: center;
 }
-.mid .down .downgrid .dropdown .dropbtn ul {
+.mid .down .down_grid .dropdown .dropbtn ul {
   display: inline;
 }
-.mid .down .downgrid .dropdown .dropbtn ul li {
+.mid .down .down_grid .dropdown .dropbtn ul li {
   display: inline;
 }
-.mid .down .downgrid .dropdown > .btn:hover + .dropbtn {
+.mid .down .down_grid .dropdown > .btn:hover + .dropbtn {
   opacity: 1;
 }
-.mid .down .downgrid .service {
+.mid .down .down_grid .service {
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
   margin: 0 20px;
   gap: 10px;
 }
-.mid .down .downgrid .service .searchbar {
+.mid .down .down_grid .service .searchbar {
   border-radius: 1px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.mid .down .downgrid .service .searchbar .icon {
+.mid .down .down_grid .service .searchbar .icon {
   background-color: #eceff1;
   padding: 8px;
 }
-.mid .down .downgrid .service .searchbar input[type=text] {
+.mid .down .down_grid .service .searchbar input[type=text] {
   height: 30px;
   width: 200px;
   background-color: #eceff1;
   border: none;
   font-size: 17px;
 }
-.mid .down .downgrid .service .servicebtn > button {
+.mid .down .down_grid .service .servicebtn > button {
   font-size: 16px;
   font-weight: 200;
   letter-spacing: 1px;
@@ -299,40 +303,65 @@ a {
 
 .main {
   display: flex;
-  justify-self: center;
+  justify-content: center;
   align-items: center;
   flex-direction: column;
-  gap: 10px;
 }
-.main div {
-  top: 100px;
-  left: 0;
-  padding: 150px;
+.main .custom-checkbox-container {
+  display: none;
+}
+.main .custom-checkbox-container > input:checked .promotion {
+  display: block;
+}
+.main .largepic {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.main .largepic img {
+  z-index: -100;
+  height: 100%;
+  width: 100%;
+  object-fit: fill;
+}
+.main .largepic .titlebox {
+  margin: 0 auto;
   position: absolute;
   display: flex;
   justify-content: center;
   align-items: flex-start;
   flex-direction: column;
-  gap: 10px;
+  left: 150px;
+  gap: 20px;
 }
-.main div .title {
+.main .largepic .titlebox .title {
   font-weight: 900;
   font-size: 30px;
 }
-.main div .title2 {
-  font-weight: 500;
+.main .largepic .titlebox .title2 {
   font-size: 20px;
+  font-weight: 400;
 }
-.main div .button {
-  height: 50px;
-  width: 200px;
+.main .largepic .titlebox .button {
+  font-size: 20px;
+  font-weight: 700;
 }
-.main .flex {
-  width: 1600px;
-  max-width: 1600px;
-  margin: 0 auto;
-  font-size: 50px;
+
+.body {
   display: flex;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
+  flex-direction: column;
+}
+.body div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.body div span {
+  font-size: 40px;
+  font-weight: 800;
 }
